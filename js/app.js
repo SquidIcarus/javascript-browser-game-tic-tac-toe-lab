@@ -82,6 +82,7 @@ function handleClick(event) {          // handleClick function with an `event` p
     checkForWinner();        // call the `checkForWinner` function
     checkForTie();           // call `checkForTie` function
     switchPlayerTurn();      // call `switchPlayerTurn();`
+    render();                // call `render()` to updateBoard and updateMessage
     
     // console.log(squareIndex);
     // console.log('Square clicked!', event.target); // log to see which element was clicked when a square is clicked
