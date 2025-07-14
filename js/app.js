@@ -79,9 +79,10 @@ function handleClick(event) {          // handleClick function with an `event` p
     }
 
     placePiece(squareIndex); // call `placePiece` function
+    checkForWinner();        // call the `checkForWinner` function
 
-    console.log(squareIndex);
-    console.log('Square clicked!', event.target); // log to see which element was clicked when a square is clicked
+    // console.log(squareIndex);
+    // console.log('Square clicked!', event.target); // log to see which element was clicked when a square is clicked
 };
 
 function placePiece(index) {
@@ -101,6 +102,7 @@ function checkForWinner() {
             winner = true;                     // if all conditions are true, we have a winner!
         }
     });
+    console.log(`winner:`, winner);
 };
 
 
