@@ -80,7 +80,9 @@ function handleClick(event) {          // handleClick function with an `event` p
 
     placePiece(squareIndex); // call `placePiece` function
     checkForWinner();        // call the `checkForWinner` function
-
+    checkForTie();           // call `checkForTie` function
+    switchPlayerTurn();      // call `switchPlayerTurn();`
+    
     // console.log(squareIndex);
     // console.log('Square clicked!', event.target); // log to see which element was clicked when a square is clicked
 };
@@ -105,6 +107,29 @@ function checkForWinner() {
     console.log(`winner:`, winner);
 };
 
+function checkForTie() {
+    if (winner === true) {    // if there is a winner
+        return;               // exit the function
+    }
+
+    if (board.includes('')) {  // if board is still open
+        tie = false;           // cant have a tie
+    } else {                   // otherwise, board is full
+        tie = true;            // we have a tie!  
+    }
+    // console.log('Tie!');
+};
+
+function switchPlayerTurn() {
+    if (winner === true) {         // check if winner exists
+        return;                    // if so, exit function                         
+    }
+    if (turn === 'X') {            // switch `turn`
+        turn = 'O';
+    } else {
+        turn = 'X';
+    }                               // function called in `handleClick` event, log shows `turn` switching 
+}
 
 function render() {
     updateBoard();
