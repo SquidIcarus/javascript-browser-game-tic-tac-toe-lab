@@ -1,15 +1,20 @@
 /*-------------------------------- Constants --------------------------------*/
+
+/*-------------------------------- Variables (state) ------------------------*/
+
 let board = ['', '', '', '', '', '', '', '', '']; // changed to array that represents all nine boxes
 let turn = null;
 let winner = null;
 let tie = null;
 
 /*------------------------ Cached Element References ------------------------*/
+
 const squareEls = document.querySelectorAll('.sqr');
 const messageEl = document.getElementById("message");
 
 console.log(squareEls);
 console.log(messageEl);
+
 /*-------------------------------- Functions --------------------------------*/
 
 function init() {    // function to initialize the game upon loading
