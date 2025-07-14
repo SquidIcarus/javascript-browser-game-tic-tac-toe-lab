@@ -22,9 +22,11 @@ let tie = null;
 
 const squareEls = document.querySelectorAll('.sqr');
 const messageEl = document.getElementById("message");
+const boardEl = document.querySelector(".board");
 
 // console.log(squareEls);
 // console.log(messageEl);
+// console.log(boardEl);
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -61,8 +63,24 @@ function updateMessage() {
 };
 
 function handleClick(event) {          // handleClick function with an `event` parameter (what happens when a square is clicked)
+    // to ensure the element clicked is a `sqr`
+    if (!event.target.classList.contains('sqr')) {  // if the click does NOT contain a `sqr` then
+        return;                                      // exit the function
+    }
+
+    const squareIndex = event.target.id;  // obtains the index of the clicked square and assigns to `squareIndex`
+    // otherwise, if `sqr` is clicked
+    if (board[squareIndex] === 'X' || board[squareIndex] === 'O') {  // if board has value of 'X' OR 'O'
+        return;                                                       // exit the function
+    }
+
+    if (winner === true) {
+        return;               // exit the function because there is a winner
+    }
+
+
     console.log('Square clicked!', event.target); // log to see which element was clicked when a square is clicked
-}
+};
 
 
 function render() {
@@ -72,8 +90,6 @@ function render() {
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-squareEls.forEach(squareEl => { // adds event listener to each square   
-    squareEl.addEventListener('click', handleClick); 
-});
+boardEl.addEventListener('click', handleClick); // changed to one click event to the board element
 
 init();
