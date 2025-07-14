@@ -70,7 +70,7 @@ function handleClick(event) {          // handleClick function with an `event` p
 
     const squareIndex = event.target.id;  // obtains the index of the clicked square and assigns to `squareIndex`
     // otherwise, if `sqr` is clicked
-    if (board[squareIndex] === 'X' || board[squareIndex] === 'O') {  // if board has value of 'X' OR 'O'
+    if (board[squareIndex] === 'X' || board[squareIndex] === 'O') {  // if board has value of 'X' OR 'O' at specified `squareIndex`
         return;                                                       // exit the function
     }
 
@@ -78,9 +78,16 @@ function handleClick(event) {          // handleClick function with an `event` p
         return;               // exit the function because there is a winner
     }
 
+    placePiece(squareIndex); // call `placePiece` function
 
+    console.log(squareIndex);
     console.log('Square clicked!', event.target); // log to see which element was clicked when a square is clicked
 };
+
+function placePiece(index) {
+    board[index] = turn; // update the board array at the index with the current players turn symbol
+    console.log(board);
+}
 
 
 function render() {
