@@ -87,7 +87,21 @@ function handleClick(event) {          // handleClick function with an `event` p
 function placePiece(index) {
     board[index] = turn; // update the board array at the index with the current players turn symbol
     console.log(board);
-}
+};
+
+function checkForWinner() {
+    winningCombos.forEach(combo => {           // loop through each winning combination
+        const firstPos = board[combo[0]];      // horizontal combos
+        const secondPos = board[combo[1]];     // vertical combos
+        const thirdPos = board[combo[2]];      // diagonal combos
+
+        if (firstPos !== ''                    // first position is not empty and
+            && firstPos === secondPos          // first position equals second position and 
+            && firstPos === thirdPos) {        // first position equals third position
+            winner = true;                     // if all conditions are true, we have a winner!
+        }
+    });
+};
 
 
 function render() {
