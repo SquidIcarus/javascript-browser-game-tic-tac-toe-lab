@@ -60,6 +60,10 @@ function updateMessage() {
     }
 };
 
+function handleClick(event) {          // handleClick function with an `event` parameter (what happens when a square is clicked)
+    console.log('Square clicked!', event.target); // log to see which element was clicked when a square is clicked
+}
+
 
 function render() {
     updateBoard();
@@ -67,4 +71,9 @@ function render() {
 };
 
 /*----------------------------- Event Listeners -----------------------------*/
+
+squareEls.forEach(squareEl => { // adds event listener to each square   
+    squareEl.addEventListener('click', handleClick); 
+});
+
 init();
