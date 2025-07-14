@@ -23,6 +23,7 @@ let tie = null;
 const squareEls = document.querySelectorAll('.sqr');
 const messageEl = document.getElementById("message");
 const boardEl = document.querySelector(".board");
+const resetBtnEl = document.getElementById("reset");
 
 // console.log(squareEls);
 // console.log(messageEl);
@@ -141,4 +142,5 @@ function render() {
 
 boardEl.addEventListener('click', handleClick); // changed to one click event to the board element
 
+resetBtnEl.addEventListener('click', init); // event listener to reset button
 init();
