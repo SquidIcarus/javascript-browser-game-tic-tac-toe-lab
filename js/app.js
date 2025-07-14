@@ -1,5 +1,16 @@
 /*-------------------------------- Constants --------------------------------*/
 
+const winningCombos = [ // each set of three arrays represents the grid 
+    [0, 1, 2], // horizontal combos
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6], // vertical combos
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8], // two diagonal combos
+    [2, 4, 6],
+];
+
 /*-------------------------------- Variables (state) ------------------------*/
 
 let board = ['', '', '', '', '', '', '', '', '']; // changed to array that represents all nine boxes
@@ -19,7 +30,7 @@ const messageEl = document.getElementById("message");
 
 function init() {    // function to initialize the game upon loading
     console.log('board initialized')
-    board = ['X', 'O', '', '', '', '', '', '', '']; // sets the board to nine empty strings
+    board = ['', '', '', '', '', '', '', '', '']; // sets the board to nine empty strings
     turn = 'X'; // turn set to start with 'X'
     winner = false; // winner set to false, no winner yet
     tie = false; // tie set to false
